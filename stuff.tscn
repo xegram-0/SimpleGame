@@ -6,10 +6,14 @@
 [node name="SpaceShip" type="Node2D"]
 script = ExtResource("1_qvof8")
 
-[node name="BasedStuff" type="Sprite2D" parent="."]
-position = Vector2(-18, 0)
+[node name="Ship" type="Sprite2D" parent="."]
+position = Vector2(-68, -22)
 texture = ExtResource("1_6qx4k")
 
-[node name="BasedStuff2" type="Sprite2D" parent="."]
+[node name="Ship2" type="Sprite2D" parent="."]
 position = Vector2(85, -27)
+texture = ExtResource("1_6qx4k")
+
+[node name="Ship3" type="Sprite2D" parent="."]
+position = Vector2(11, 24)
 texture = ExtResource("1_6qx4k")
