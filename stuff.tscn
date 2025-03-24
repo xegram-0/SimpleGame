@@ -7,4 +7,9 @@
 script = ExtResource("1_qvof8")
 
 [node name="BasedStuff" type="Sprite2D" parent="."]
+position = Vector2(-18, 0)
+texture = ExtResource("1_6qx4k")
+
+[node name="BasedStuff2" type="Sprite2D" parent="."]
+position = Vector2(85, -27)
 texture = ExtResource("1_6qx4k")
