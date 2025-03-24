@@ -1,0 +1,20 @@
+[gd_scene load_steps=4 format=3 uid="uid://c6hde0inqr0e4"]
+
+[ext_resource type="Texture2D" uid="uid://dmfgc4q08ugxa" path="res://space/Pixel_space (completo).png" id="1_oi3di"]
+[ext_resource type="PackedScene" uid="uid://csi66padldjvk" path="res://stuff.tscn" id="1_u52ul"]
+[ext_resource type="PackedScene" uid="uid://hx1numd1hgse" path="res://meteor.tscn" id="2_oi3di"]
+
+[node name="Level" type="Node2D"]
+
+[node name="BackGround" type="Sprite2D" parent="."]
+position = Vector2(1394, 1079)
+scale = Vector2(7.1326, 3.89152)
+texture = ExtResource("1_oi3di")
+
+[node name="Meteor" parent="." instance=ExtResource("2_oi3di")]
+position = Vector2(163, 134)
+scale = Vector2(2, 2)
+
+[node name="SpaceShip" parent="." instance=ExtResource("1_u52ul")]
+position = Vector2(99, 110)
+scale = Vector2(2, 2)

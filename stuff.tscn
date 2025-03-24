@@ -1,0 +1,10 @@
+[gd_scene load_steps=3 format=3 uid="uid://csi66padldjvk"]
+
+[ext_resource type="Texture2D" uid="uid://dni4mgl6l2muv" path="res://Spaceship Pack/ship_1.png" id="1_6qx4k"]
+[ext_resource type="Script" uid="uid://b7qudlgcp7eyv" path="res://stuff.gd" id="1_qvof8"]
+
+[node name="SpaceShip" type="Node2D"]
+script = ExtResource("1_qvof8")
+
+[node name="BasedStuff" type="Sprite2D" parent="."]
+texture = ExtResource("1_6qx4k")
