@@ -1,9 +1,11 @@
-[gd_scene load_steps=7 format=3 uid="uid://c6hde0inqr0e4"]
+[gd_scene load_steps=9 format=3 uid="uid://c6hde0inqr0e4"]
 
 [ext_resource type="Script" uid="uid://1bhf3732cdkq" path="res://level.gd" id="1_f2txt"]
 [ext_resource type="Texture2D" uid="uid://dmfgc4q08ugxa" path="res://space/Pixel_space (completo).png" id="1_oi3di"]
-[ext_resource type="PackedScene" uid="uid://csi66padldjvk" path="res://stuff.tscn" id="1_u52ul"]
+[ext_resource type="PackedScene" uid="uid://csi66padldjvk" path="res://ship.tscn" id="1_u52ul"]
 [ext_resource type="PackedScene" uid="uid://hx1numd1hgse" path="res://meteor.tscn" id="2_oi3di"]
+[ext_resource type="Script" uid="uid://csmb145lyiykx" path="res://meteors.gd" id="6_1ainy"]
+[ext_resource type="PackedScene" uid="uid://nu1wmhce3gj0" path="res://lazer.tscn" id="6_n6hdu"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_oi3di"]
 size = Vector2(188.5, 721)
@@ -28,27 +30,50 @@ position = Vector2(99, 110)
 scale = Vector2(2, 2)
 
 [node name="Border" type="Node2D" parent="."]
+visibility_layer = 4
 
 [node name="StaticBody2D" type="StaticBody2D" parent="Border"]
+visibility_layer = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="Border/StaticBody2D"]
+visibility_layer = 4
 position = Vector2(-92, 351)
 shape = SubResource("RectangleShape2D_oi3di")
 
-[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border/StaticBody2D"]
+[node name="StaticBody2D2" type="StaticBody2D" parent="Border"]
+visibility_layer = 4
+
+[node name="CollisionShape2D2" type="CollisionShape2D" parent="Border/StaticBody2D2"]
+visibility_layer = 4
 position = Vector2(1380, 354)
 shape = SubResource("RectangleShape2D_oi3di")
 
-[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border/StaticBody2D"]
+[node name="StaticBody2D3" type="StaticBody2D" parent="Border"]
+visibility_layer = 4
+
+[node name="CollisionShape2D3" type="CollisionShape2D" parent="Border/StaticBody2D3"]
+visibility_layer = 4
 position = Vector2(651, -89)
 shape = SubResource("RectangleShape2D_0b4ue")
 
-[node name="CollisionShape2D4" type="CollisionShape2D" parent="Border/StaticBody2D"]
+[node name="StaticBody2D4" type="StaticBody2D" parent="Border"]
+visibility_layer = 4
+
+[node name="CollisionShape2D4" type="CollisionShape2D" parent="Border/StaticBody2D4"]
+visibility_layer = 4
 position = Vector2(651, 789)
 shape = SubResource("RectangleShape2D_0b4ue")
 
-[node name="Timer" type="Timer" parent="."]
-wait_time = 0.074
+[node name="MetetorTimer" type="Timer" parent="."]
+wait_time = 0.5
 autostart = true
 
-[connection signal="timeout" from="Timer" to="." method="_on_timer_timeout"]
+[node name="Meteors" type="Node2D" parent="."]
+script = ExtResource("6_1ainy")
+
+[node name="lazer" parent="." instance=ExtResource("6_n6hdu")]
+position = Vector2(99, 110)
+scale = Vector2(2, 2)
+
+[connection signal="lazer" from="SpaceShip" to="." method="_on_space_ship_lazer"]
+[connection signal="timeout" from="MetetorTimer" to="." method="_on_metetor_timer_timeout"]

@@ -1,20 +1,22 @@
-[gd_scene load_steps=3 format=3 uid="uid://crqngrniuvmcj"]
+[gd_scene load_steps=4 format=3 uid="uid://nu1wmhce3gj0"]
 
-[ext_resource type="Texture2D" uid="uid://b8wdbsgeevs7y" path="res://Laser Sprites/24.png" id="1_avoeb"]
+[ext_resource type="Texture2D" uid="uid://ce47mgx42w1ii" path="res://Laser Sprites/02.png" id="1_avoeb"]
+[ext_resource type="Script" uid="uid://br045jlg7fgft" path="res://lazer.gd" id="1_pxg10"]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_avoeb"]
-radius = 11.9662
-height = 180.156
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_pxg10"]
+radius = 7.0
 
 [node name="lazer" type="Area2D"]
+script = ExtResource("1_pxg10")
 
-[node name="Lazer" type="Sprite2D" parent="."]
-position = Vector2(430.5, 269)
+[node name="Sprite2D" type="Sprite2D" parent="."]
+position = Vector2(45, 30)
 rotation = -1.57079
-scale = Vector2(1.15625, 1)
+scale = Vector2(0.917323, 1.06911)
 texture = ExtResource("1_avoeb")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(431, 268)
-rotation = -0.0407001
-shape = SubResource("CapsuleShape2D_avoeb")
+light_mask = 2
+visibility_layer = 8
+position = Vector2(45, 33)
+shape = SubResource("CapsuleShape2D_pxg10")

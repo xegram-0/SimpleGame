@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://csi66padldjvk"]
 
 [ext_resource type="Texture2D" uid="uid://dni4mgl6l2muv" path="res://Spaceship Pack/ship_1.png" id="1_6qx4k"]
-[ext_resource type="Script" uid="uid://b7qudlgcp7eyv" path="res://stuff.gd" id="1_qvof8"]
+[ext_resource type="Script" uid="uid://b7qudlgcp7eyv" path="res://ship.gd" id="1_qvof8"]
 
 [node name="SpaceShip" type="CharacterBody2D"]
 script = ExtResource("1_qvof8")
@@ -11,5 +11,17 @@ position = Vector2(0, -2)
 texture = ExtResource("1_6qx4k")
 
 [node name="CollisionPolygon2D" type="CollisionPolygon2D" parent="."]
-position = Vector2(0, -1)
+light_mask = 6
+position = Vector2(-0.5, -1.1736)
+scale = Vector2(0.9875, 0.952806)
 polygon = PackedVector2Array(-3, -24, 3, -25, 24, 6, 25, 13, 15, 22, -14, 24, -24, 11, -25, 6)
+
+[node name="LazerPos" type="Marker2D" parent="."]
+position = Vector2(0, -46)
+gizmo_extents = 597.5
+
+[node name="LazerCD" type="Timer" parent="."]
+wait_time = 0.3
+one_shot = true
+
+[connection signal="timeout" from="LazerCD" to="." method="_on_lazer_cd_timeout"]
